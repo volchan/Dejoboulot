@@ -30,6 +30,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :polls, dependent: :destroy, foreign_key: :created_by_id, inverse_of: :created_by
+
   validates :firstname, presence: true
   validates :lastname, presence: true
   validates :email, presence: true, uniqueness: { case_sensitive: false }

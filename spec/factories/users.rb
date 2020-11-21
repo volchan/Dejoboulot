@@ -23,7 +23,7 @@
 #  index_users_on_username              (username) UNIQUE
 #
 FactoryBot.define do
-  factory :user do
+  factory :user, aliases: %I[created_by] do
     sequence(:email) { |n| "test+#{n}@test.com" }
     sequence(:firstname) { |n| "firstname_#{n}" }
     sequence(:lastname) { |n| "lastname_#{n}" }

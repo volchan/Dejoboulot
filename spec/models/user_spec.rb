@@ -33,7 +33,9 @@ RSpec.describe User, type: :model do
     expect(user).to be_valid
   end
 
-  describe '# Associations' do; end
+  describe '# Associations' do
+    it { is_expected.to have_many(:polls).dependent(:destroy).inverse_of(:created_by) }
+  end
 
   describe '# Validations' do
     it { is_expected.to validate_presence_of(:firstname) }

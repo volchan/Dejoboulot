@@ -310,12 +310,16 @@ GEM
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
+    timecop (0.9.2)
+    timeliness (0.4.4)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
     tzinfo (1.2.8)
       thread_safe (~> 0.1)
     unicode-display_width (1.7.0)
+    validates_timeliness (4.1.1)
+      timeliness (>= 0.3.10, < 1)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.1.0)
@@ -376,7 +380,9 @@ DEPENDENCIES
   spring
   spring-watcher-listen
   stackprof
+  timecop
   turbolinks (~> 5)
+  validates_timeliness
   web-console
   webpacker (~> 4.0)
 

@@ -19,6 +19,7 @@ gem 'sass-rails', '>= 6'
 gem 'sidekiq'
 gem 'sidekiq-failures'
 gem 'simple_form'
+gem 'validates_timeliness'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 
@@ -32,6 +33,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'simplecov'
+  gem 'timecop'
 end
 
 group :development do

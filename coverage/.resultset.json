@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/volchan/code/volchan/personal-projects/Dejoboulot/app/models/vote.rb": {
+      "/Users/volchan/code/volchan/personal-projects/Dejoboulot/app/models/poll.rb": {
         "lines": [
           null,
           null,
@@ -32,21 +32,41 @@
           1,
           null,
           1,
-          null,
           1,
           null,
           1,
           null,
           1,
-          0,
+          null,
+          1,
+          null,
+          1,
+          14,
+          14,
+          14,
+          null,
+          null,
+          null,
+          1,
+          16,
+          null,
+          null,
+          1,
+          16,
           null,
           null
         ],
         "branches": {
+          "[:unless, 0, 41, 6, 41, 56]": {
+            "[:else, 1, 41, 6, 41, 56]": 0,
+            "[:then, 2, 41, 6, 41, 20]": 14
+          }
         }
       },
       "/Users/volchan/code/volchan/personal-projects/Dejoboulot/app/mailers/application_mailer.rb": {
         "lines": [
+          null,
+          null,
           0,
           0,
           0,
@@ -57,6 +77,8 @@
       },
       "/Users/volchan/code/volchan/personal-projects/Dejoboulot/app/models/application_record.rb": {
         "lines": [
+          null,
+          null,
           0,
           0,
           0
@@ -139,45 +161,14 @@
       },
       "/Users/volchan/code/volchan/personal-projects/Dejoboulot/app/jobs/application_job.rb": {
         "lines": [
+          null,
+          null,
           0,
           null,
           null,
           null,
           null,
           null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/volchan/code/volchan/personal-projects/Dejoboulot/app/controllers/votes_controller.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
           0
         ],
         "branches": {
@@ -185,13 +176,11 @@
       },
       "/Users/volchan/code/volchan/personal-projects/Dejoboulot/app/controllers/application_controller.rb": {
         "lines": [
-          0,
-          0,
+          null,
           null,
           0,
           0,
           null,
-          0,
           0,
           0,
           null,
@@ -220,31 +209,10 @@
         "branches": {
         }
       },
-      "/Users/volchan/code/volchan/personal-projects/Dejoboulot/app/helpers/meta_tags_helper.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
       "/Users/volchan/code/volchan/personal-projects/Dejoboulot/app/helpers/application_helper.rb": {
         "lines": [
+          null,
+          null,
           0,
           0
         ],
@@ -253,6 +221,8 @@
       },
       "/Users/volchan/code/volchan/personal-projects/Dejoboulot/app/channels/application_cable/connection.rb": {
         "lines": [
+          null,
+          null,
           0,
           0,
           0,
@@ -263,6 +233,8 @@
       },
       "/Users/volchan/code/volchan/personal-projects/Dejoboulot/app/channels/application_cable/channel.rb": {
         "lines": [
+          null,
+          null,
           0,
           0,
           0,
@@ -272,6 +244,6 @@
         }
       }
     },
-    "timestamp": 1605988811
+    "timestamp": 1606049545
   }
 }
