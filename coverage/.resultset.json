@@ -24,6 +24,8 @@
           1,
           null,
           1,
+          null,
+          1,
           1,
           1,
           1,
@@ -84,9 +86,9 @@
           1,
           null,
           1,
-          14,
-          14,
-          14,
+          18,
+          18,
+          18,
           null,
           null,
           null,
@@ -102,8 +104,44 @@
         "branches": {
           "[:unless, 0, 41, 6, 41, 56]": {
             "[:else, 1, 41, 6, 41, 56]": 0,
-            "[:then, 2, 41, 6, 41, 20]": 14
+            "[:then, 2, 41, 6, 41, 20]": 18
           }
+        }
+      },
+      "/Users/volchan/code/volchan/personal-projects/Dejoboulot/app/models/proposal.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null
+        ],
+        "branches": {
         }
       },
       "/Users/volchan/code/volchan/personal-projects/Dejoboulot/app/mailers/application_mailer.rb": {
@@ -287,6 +325,6 @@
         }
       }
     },
-    "timestamp": 1606088273
+    "timestamp": 1606088425
   }
 }

@@ -18,6 +18,8 @@ class Place < ApplicationRecord
   GEOLOC_MIN = -180.0
   GEOLOC_MAX = 180.0
 
+  has_many :proposals, dependent: :destroy
+
   validates :name, presence: true
   validates :address, presence: true
   validates :country, presence: true

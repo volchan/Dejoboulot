@@ -25,7 +25,9 @@ RSpec.describe Place, type: :model do
     expect(place).to be_valid
   end
 
-  describe '# Associations' do; end
+  describe '# Associations' do
+    it { is_expected.to have_many(:proposals).dependent(:destroy) }
+  end
 
   describe '# Validations' do
     it { is_expected.to validate_presence_of(:name) }
