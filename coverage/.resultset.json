@@ -1,6 +1,49 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/volchan/code/volchan/personal-projects/Dejoboulot/app/models/place.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null
+        ],
+        "branches": {
+        }
+      },
       "/Users/volchan/code/volchan/personal-projects/Dejoboulot/app/models/poll.rb": {
         "lines": [
           null,
@@ -244,6 +287,6 @@
         }
       }
     },
-    "timestamp": 1606049545
+    "timestamp": 1606088273
   }
 }
