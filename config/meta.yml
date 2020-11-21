@@ -1,0 +1,5 @@
+meta_product_name: "DéjOboulot"
+meta_title: "DéjOboulot - On mange quoi ce midi ?"
+meta_description: "Trouvez où aller manger avec votre équipe."
+meta_image: "meta.png" # should exist in `app/assets/images/`
+twitter_account: "@volchantv"   # required for Twitter Cards

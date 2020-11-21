@@ -2,12 +2,31 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}
+    %meta{content: meta_description, name: "description"}
+    / Facebook Open Graph data
+    %meta{content: meta_title, property: "og:title"}
+    %meta{content: "website", property: "og:type"}
+    %meta{content: request.original_url, property: "og:url"}
+    %meta{content: meta_image, property: "og:image"}
+    %meta{content: meta_description, property: "og:description"}
+    %meta{content: meta_title, property: "og:site_name"}
+    / Twitter Card data
+    %meta{content: "summary_large_image", name: "twitter:card"}
+    %meta{content: DEFAULT_META["twitter_account"], name: "twitter:site"}
+    %meta{content: meta_title, name: "twitter:title"}
+    %meta{content: meta_description, name: "twitter:description"}
+    %meta{content: DEFAULT_META["twitter_account"], name: "twitter:creator"}
+    %meta{content: meta_image, name: "twitter:image:src"}
+
     %title Déjoboulot
+
+    = favicon_link_tag 'favicon.ico'
+
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  %body.container
+  %body
     = yield

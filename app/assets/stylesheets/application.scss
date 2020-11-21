@@ -1,3 +1,39 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "bootstrap";
+
+body {
+  height: 100vh;
+}
+
+#home-title {
+  color: white;
+  h1 {
+    font-size: 7rem;
+  }
+  p {
+    font-size: 3rem;
+  }
+}
+#home-bg {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -2;
+  
+  &-image {
+    background-image: url(asset_path('home_bg.jpg'));
+
+    height: 100%;
+    width: 100%;
+    
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+        
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: scale(1.1);
+  }
+}
