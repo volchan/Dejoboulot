@@ -23,3 +23,13 @@ $(document).on("turbolinks:load", () => {
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+import "controllers"
+
+window.initMap = function (...args) {
+  const event = document.createEvent("Events");
+  event.initEvent("google-maps-callback", true, true);
+  event.args = args;
+  console.log(event);
+  window.dispatchEvent(event);
+};

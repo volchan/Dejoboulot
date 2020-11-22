@@ -19,6 +19,9 @@
 #                                       DELETE /users(.:format)                                                                         devise/registrations#destroy
 #                                       POST   /users(.:format)                                                                         devise/registrations#create
 #                                  root GET    /                                                                                        pages#home
+#                                 polls POST   /polls(.:format)                                                                         polls#create
+#                              new_poll GET    /polls/new(.:format)                                                                     polls#new
+#                                  poll GET    /:slug(.:format)                                                                         polls#show
 #         rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
 #            rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
 #         rails_sendgrid_inbound_emails POST   /rails/action_mailbox/sendgrid/inbound_emails(.:format)                                  action_mailbox/ingresses/sendgrid/inbound_emails#create
@@ -44,4 +47,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   root to: 'pages#home'
+
+  resources :polls, only: %I[new create]
+
+  resource :polls, as: :poll, path: '/:slug', only: %I[show]
 end
