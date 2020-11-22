@@ -1,0 +1,75 @@
+inherit_from:
+  - .rubocop_todo.yml
+
+require:
+  - rubocop-rails # rails cops extracted to separate gem in last version
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'vendor/**/*'
+    - 'db/**/*'
+    - 'db/migrate/**'
+    - 'config/**/*'
+    - 'config/environnements/**'
+    - 'bin/**/*'
+    - 'tmp/*'
+    - 'Guardfile'
+    - 'node_modules/**/*' #webpacker & rails >= 5.1
+
+Layout/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/ClassLength:
+  Max: 200
+
+Metrics/BlockLength:
+  ExcludedMethods: ['describe', 'context']
+
+Style/Documentation:
+  Enabled: false
+
+Style/SymbolArray:
+  EnforcedStyle: percent
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Rails/OutputSafety:
+  Enabled: false
+
+Lint/Debugger: # don't leave binding.pry
+  Enabled: true
+  Exclude: []
+
+RSpec/Focus: # run ALL tests on CI
+  Enabled: true
+  Exclude: []
+
+Rails/Output: # Don't leave puts-debugging
+  Enabled: true
+  Exclude: []
+
+Rails/FindEach: # each could severely affect the performance, use find_each
+  Enabled: true
+  Exclude: []
+
+Rails/UniqBeforePluck: # uniq.pluck and not pluck.uniq
+  Enabled: true
+  Exclude: []
+
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - development
+    - test

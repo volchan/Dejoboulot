@@ -25,6 +25,12 @@ module Dejoboulot
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
+    config.time_zone = 'Europe/Paris'
+    config.action_view.embed_authenticity_token_in_remote_forms = true
+    config.active_job.queue_adapter = :sidekiq
+    config.eager_load_paths << Rails.root.join('/app/services')
+    config.eager_load_paths << Rails.root.join('lib')
+    config.i18n.default_locale = :fr
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
