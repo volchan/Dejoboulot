@@ -15,6 +15,10 @@ class PollsController < ApplicationController
     end
   end
 
+  def show
+    @poll = Poll.includes(:created_by).find_by(slug: params[:slug])
+  end
+
   private
 
   def poll_params

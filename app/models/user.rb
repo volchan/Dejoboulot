@@ -57,6 +57,10 @@ class User < ApplicationRecord
     @login || username || email
   end
 
+  def full_name
+    "#{firstname.capitalize} #{lastname.capitalize}"
+  end
+
   private
 
   def validate_username

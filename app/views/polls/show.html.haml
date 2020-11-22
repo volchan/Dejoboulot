@@ -1,0 +1,23 @@
+.container{data: {controller: 'poll', poll: {end_time: @poll.due_at}}}
+  #poll-infos.text-center
+    %h1= @poll.title
+    %p.m-0 Le #{l(@poll.scheduled_at)}
+    %p.m-0 Proposé par #{@poll.created_by.full_name}
+    #clock
+      %p Durée restante pour le vote
+      %p{style: 'font-family: monospace;', data: {target: 'poll.clock'}}
+        %span{data: {target: 'poll.days'}}
+        jour(s)
+        %span{data: {target: 'poll.hours'}}
+        heure(s)
+        %span{data: {target: 'poll.minutes'}}
+        minute(s)
+        %span{data: {target: 'poll.seconds'}}
+        seconde(s)
+  #invite
+    .col-12.col-md-8.offset-md-2.text-center
+      %h4 Invitez vos collègues avec ce lien
+      .input-group.mb-3{data: {controller: 'clipboard', clipboard: {copied_text: 'Copié'}}}
+        %input.form-control{value: poll_url(@poll.slug), readonly: true, data: {target: 'clipboard.source'}, "aria-describedby" => "basic-addon2", "aria-label" => "Recipient's username"}/
+        .input-group-append
+          %button.btn.btn-primary{data: {action: 'clipboard#copy', target: 'clipboard.btn'}} Copier
