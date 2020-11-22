@@ -1,11 +1,13 @@
+-# frozen_string_literal: true
 .container{data: {controller: 'poll', poll: {end_time: @poll.due_at}}}
-  #poll-infos.text-center
+  #poll-infos.text-center.col.mb-5
     %h1= @poll.title
     %p.m-0 Le #{l(@poll.scheduled_at)}
     %p.m-0 Proposé par #{@poll.created_by.full_name}
-    #clock
+  .row
+    #clock.col-12.col-md-6.text-center
       %p Durée restante pour le vote
-      %p{style: 'font-family: monospace;', data: {target: 'poll.clock'}}
+      %p{style: 'font-family: monospace; font-size: 1.1rem; font-weight: bold;', data: {target: 'poll.clock'}}
         %span{data: {target: 'poll.days'}}
         jour(s)
         %span{data: {target: 'poll.hours'}}
@@ -14,10 +16,14 @@
         minute(s)
         %span{data: {target: 'poll.seconds'}}
         seconde(s)
-  #invite
-    .col-12.col-md-8.offset-md-2.text-center
-      %h4 Invitez vos collègues avec ce lien
-      .input-group.mb-3{data: {controller: 'clipboard', clipboard: {copied_text: 'Copié'}}}
-        %input.form-control{value: poll_url(@poll.slug), readonly: true, data: {target: 'clipboard.source'}, "aria-describedby" => "basic-addon2", "aria-label" => "Recipient's username"}/
-        .input-group-append
-          %button.btn.btn-primary{data: {action: 'clipboard#copy', target: 'clipboard.btn'}} Copier
+    #invite.col-12.col-md-6
+      %section.text-center
+        %h4 Invitez vos collègues avec ce lien
+        .input-group.mb-3{data: {controller: 'clipboard', clipboard: {copied_text: 'Copié'}}}
+          %input.form-control{value: poll_url(@poll.slug), readonly: true, data: {target: 'clipboard.source'}, "aria-describedby" => "basic-addon2", "aria-label" => "Recipient's username"}/
+          .input-group-append
+            %button.btn.btn-primary{data: {action: 'clipboard#copy', target: 'clipboard.btn'}} Copier
+        %button.btn.btn-primary{"data-target" => "#emailInviteModal", "data-toggle" => "modal", :type => "button"}
+          Envoyer des invitations par email
+
+= render 'polls/invite_modal', poll: @poll

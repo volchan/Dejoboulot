@@ -1,0 +1,11 @@
+-# frozen_string_literal: true
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %body
+    %h1 #{@user.full_name} à besoin de vous pour savoir où manger.
+    %p Veuillez suivre ce lien pour donner votre avis:
+    %a{href: @poll_url}= @poll_url
+    %br
+    %p Bonne journée et bon appétit à vous.

@@ -19,6 +19,7 @@
 #                                       DELETE /users(.:format)                                                                         devise/registrations#destroy
 #                                       POST   /users(.:format)                                                                         devise/registrations#create
 #                                  root GET    /                                                                                        pages#home
+#                     poll_send_invites POST   /polls/:poll_id/send_invites(.:format)                                                   polls#send_invites
 #                                 polls POST   /polls(.:format)                                                                         polls#create
 #                              new_poll GET    /polls/new(.:format)                                                                     polls#new
 #                                  poll GET    /:slug(.:format)                                                                         polls#show
@@ -48,7 +49,9 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  resources :polls, only: %I[new create]
+  resources :polls, only: %I[new create] do
+    post :send_invites
+  end
 
   resource :polls, as: :poll, path: '/:slug', only: %I[show]
 end

@@ -1,0 +1,22 @@
+-# frozen_string_literal: true
+#emailInviteModal.modal.fade{aria: {hidden: "true",labelledby: "emailInviteModalLabel"}, role: "dialog", tabindex: "-1"}
+  .modal-dialog.modal-lg{role: "document"}
+    .modal-content
+      .modal-header
+        %h5#emailInviteModalLabel.modal-title Envoyer des invitations par email
+        %button.close{aria: {label: "Close"}, data: {dismiss: "modal"}, type: "button"}
+          %span{aria: {hidden: "true"}} ×
+      .modal-body
+        = simple_form_for :invite, url: poll_send_invites_path(poll.slug), html: {id: 'inviteForm', data: {controller: 'form', target: 'form.form'}} do |f|
+          %h6 Emails des collègues à inviter
+          = f.input :emails, as: :hidden, input_html: {data: {target: 'form.hiddenField'}}
+          %div{data: {target: 'form.template'}}
+            .input-group.mb-3
+              %input.form-control.string.email.required{data: {target: "form.input"}, :placeholder => "toto@toto.com", :type => "email"}
+              .input-group-append
+                %button.btn.btn-danger{data: {action: 'form#removeField', target: 'form.removeFieldBtn'}}
+                  %i.fas.fa-times
+          %button.btn.btn-primary.mb-3{data: {target: 'form.addFieldBtn', action: 'form#addField'}} Ajouter un email
+          .modal-footer
+            %button.btn.btn-secondary{data: {dismiss: "modal"}, type: "button"} Close
+            = f.submit "Envoyer l'invitation", class: 'btn btn-primary', data: {action: 'form#submit'}

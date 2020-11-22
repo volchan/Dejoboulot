@@ -37,3 +37,14 @@ body {
     transform: scale(1.1);
   }
 }
+
+#inviteForm {
+  .input-group:first-child {
+    input {
+      border-radius: 0.25rem;
+    }
+    .input-group-append {
+      display: none;
+    }
+  }
+}
