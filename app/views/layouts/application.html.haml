@@ -2,6 +2,7 @@
 !!!
 %html
   = render 'shared/head'
+  %script{src: "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials[:google_maps_api_key]}&libraries=places&callback=initMap", async: true, defer: true, data: { turbolinks: { eval: "false" } } }
   %body
     = render 'shared/navbar'
     = render 'shared/flashes'

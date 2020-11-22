@@ -1,0 +1,9 @@
+%h4.mt-5 Propositions
+.row{data: {controller: 'proposal', action: "google-maps-callback@window->proposal#initMap"}}
+  .col-12.col-md-6
+    .input-group.mb-3
+      %input.form-control{data: {target: 'proposal.search', action: "keydown->proposal#keydown"}, placeholder: "Cherchez une addresse ou le nom d'un restaurant"}
+      .input-group-append
+        %button.btn.btn-primary Valider
+
+  .col-12.col-md-6#map{data: {target: 'proposal.map'}}
