@@ -1,14 +1,20 @@
 ---
 fr:
+  sign_out: Déconnexion
   activerecord:
     model:
       user: Utilisateur
+      poll: Vote
     attributes:
       user:
         login: Identifiant/Email
         username: Identifiant
         firstname: Prénom
         lastname: Nom
+      poll:
+        title: Titre
+        scheduled_at: Prévu le
+        due_at: Fin des votes
     errors:
       messages:
         record_invalid: 'La validation a échoué : %{errors}'
@@ -230,4 +236,5 @@ fr:
       default: "%d %B %Y %Hh %Mmin %Ss"
       long: "%A %d %B %Y %Hh%M"
       short: "%d %b %Hh%M"
+      hours: "%H:%M"
     pm: pm
