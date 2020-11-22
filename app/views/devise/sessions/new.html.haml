@@ -1,15 +1,14 @@
 -# frozen_string_literal: true
-%h2= t(".sign_in")
-= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .form-inputs
-    = f.input :login,                       |
-      required: false,                      |
-      autofocus: true,                      |
-      input_html: { autocomplete: "email" } |
-    = f.input :password,                               |
-      required: false,                                 |
-      input_html: { autocomplete: "current-password" } |
-    = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
-  .form-actions
-    = f.button :submit, t(".sign_in")
-= render "devise/shared/links"
+.container.h-100.d-flex.justify-content-center.align-items-center
+  .col-12.col-md-6
+    %h1.text-center.mb-5
+      %i.fas.fa-hamburger
+      DéjOboulot
+
+    = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = f.input :login, required: false, autofocus: true, input_html: { autocomplete: "login" }
+      = f.input :password, required: false, input_html: { autocomplete: "current-password" }
+      = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+      = f.button :submit, t(".sign_in"),  class: 'btn btn-primary'
+
+    = render 'devise/shared/links'
