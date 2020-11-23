@@ -1,0 +1,6 @@
+-# frozen_string_literal: true
+%li.list-group-item
+  .d-flex.w-100.justify-content-between
+    %h5.mb-1= proposal.place.name
+  %p.mb-1= proposal.place.address
+  %small Proposé par #{proposal.user.full_name} le #{l(proposal.created_at, format: :short)}

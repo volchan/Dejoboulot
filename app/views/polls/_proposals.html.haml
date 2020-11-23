@@ -1,9 +1,12 @@
+-# frozen_string_literal: true
 %h4.mt-5 Propositions
-.row{data: {controller: 'proposal', action: "google-maps-callback@window->proposal#initMap"}}
+.row{data: {controller: 'proposal', proposal_create_url: proposals_path, proposal_poll_slug: poll.slug, action: "google-maps-callback@window->proposal#initMap ajax:success->proposal#append"}}
   .col-12.col-md-6
     .input-group.mb-3
       %input.form-control{data: {target: 'proposal.search', action: "keydown->proposal#keydown"}, placeholder: "Cherchez une addresse ou le nom d'un restaurant"}
       .input-group-append
-        %button.btn.btn-primary Valider
+        %button.btn.btn-primary{data: {target: 'proposal.btn', action: 'proposal#validate'}} Valider
+  
+    = render 'proposals/list', proposals: poll.proposals
 
   .col-12.col-md-6#map{data: {target: 'proposal.map'}}

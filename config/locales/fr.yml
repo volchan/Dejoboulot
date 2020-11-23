@@ -235,6 +235,6 @@ fr:
     formats:
       default: "%d %B %Y %Hh %Mmin %Ss"
       long: "%A %d %B %Y %Hh%M"
-      short: "%d %b %Hh%M"
+      short: "%d/%m/%Y à %H:%M"
       hours: "%H:%M"
     pm: pm

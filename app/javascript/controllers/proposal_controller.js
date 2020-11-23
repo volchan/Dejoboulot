@@ -1,12 +1,13 @@
+import Rails from "@rails/ujs";
 import { Controller } from "stimulus";
-
 export default class extends Controller {
-  static targets = ["search", "map"]
+  static targets = ["search", "map", "list", "btn"]
 
   currentCoords = null;
   selectedPlace = null;
 
   _placeChanged() {
+    this._enableBtn();
     const place = this.autocomplete.getPlace()
 
     if (!place.geometry) {
@@ -65,13 +66,68 @@ export default class extends Controller {
     }
   }
 
+  _enableBtn() {
+    this.btnTarget.disabled = false;
+  }
+
+  _disableBtn() {
+    this.btnTarget.disabled = true;
+  }
+
   connect() {
+    this._disableBtn();
     if (typeof(google) != "undefined") {
       this.initMap()
     }
   }
 
+  _buildAddress(components) {
+    return components.map(({long_name}) => long_name).join(' ');
+  };
+
+  _formatFormData() {
+    const { name, address_components, geometry: { location: { lat, lng } } } = this.selectedPlace;
+    const address = this._buildAddress(address_components);
+    const countryElement = address_components.find((el) => el.types.includes("country"));
+
+    const data = {
+      name,
+      address,
+      country: countryElement.long_name,
+      lat: lat(),
+      long: lng(),
+    };
+
+    const formData = new FormData();
+    for (let key in data) {
+      formData.append(`place[${key}]`, data[key]);
+    }
+    formData.append(`poll[slug]`, this.data.get("poll-slug"));
+
+    return formData;
+  }
+
+  _resetSearchInput() {
+    this.searchTarget.value = null;
+  }
+
+  _appendProposal(data) {
+    this._resetSearchInput();
+    this._disableBtn();
+    this.listTarget.insertAdjacentHTML(
+      "beforeEnd",
+      data.querySelector("body").innerHTML,
+    );
+  }
+
   validate(event) {
     event.preventDefault();
+    
+    Rails.ajax({
+      url: this.data.get("create-url"),
+      type: "POST",
+      data: this._formatFormData(),
+      success: this._appendProposal.bind(this),
+    });
   }
 }

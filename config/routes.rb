@@ -54,4 +54,6 @@ Rails.application.routes.draw do
   end
 
   resource :polls, as: :poll, path: '/:slug', only: %I[show]
+
+  resources :proposals, only: %I[create]
 end

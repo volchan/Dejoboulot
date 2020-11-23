@@ -21,6 +21,8 @@
 class Poll < ApplicationRecord
   belongs_to :created_by, class_name: 'User', inverse_of: :polls
 
+  has_many :proposals, dependent: :destroy
+
   validates :title, presence: true
   validates :slug, presence: true, uniqueness: { case_sensitive: false }
   validates :scheduled_at, presence: true, timeliness: { after: :due_at, type: :datetime }

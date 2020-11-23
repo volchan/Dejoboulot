@@ -1,0 +1,4 @@
+-# frozen_string_literal: true
+%ul.list-group{data: {target: 'proposal.list'}}
+  - proposals.each do |proposal|
+    = render proposal
